@@ -8,11 +8,16 @@ const db = client.db("muza_232");
 export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
+    requireEmailVerification:true,
   },
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_SECRET_KEY,
+    },
+    github: {
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_SECRET_KEY,
     },
   },
   database: mongodbAdapter(db, {
